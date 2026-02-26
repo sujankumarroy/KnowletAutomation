@@ -3,24 +3,24 @@ import re
 
 FOLDER_PATH = "/sdcard/.workspace/web/knowlet/notes"  # Change this to your folder containing HTML files
 
-def get_semester(course_number):
+def get_semester(sem):
   """Determine semester based on course code number."""
-  num = int(course_number)
-  if 100 <= num < 150:
+  sem = int(sem)
+  if sem == 1:
     return "1st Semester"
-  elif 150 <= num < 200:
+  elif sem == 2:
     return "2nd Semester"
-  elif 200 <= num < 250:
+  elif sem == 3:
     return "3rd Semester"
-  elif 250 <= num < 300:
+  elif sem == 4:
     return "4th Semester"
-  elif 300 <= num < 350:
+  elif sem == 5:
     return "5th Semester"
-  elif 350 <= num < 400:
+  elif sem == 6:
     return "6th Semester"
-  elif 400 <= num < 550:
+  elif sem == 7:
     return "7th Semester"
-  elif 550 <= num < 600:
+  elif sem == 8:
     return "8th Semester"
   else:
     return "Any Semester"
@@ -28,13 +28,13 @@ def get_semester(course_number):
 def generate_title(path):
   name = path.removeprefix(FOLDER_PATH).removesuffix('.html')
   parts = name.split("/")
-  #print(parts)
+  #  notes/semester_1/ecology/dsc_101/unit_1
   sem = ' '.join(parts[1].split('_')).capitalize()
   sub = ' '.join(w.capitalize() for w in (parts[2].split('_')))
   paper = ' '.join(parts[3].split('_')).upper()
   unit = ' '.join(parts[4].split('_')).capitalize()
   
-  semester = get_semester(int((parts[3].split('_'))[1]))
+  semester = get_semester(int((parts[1].split('_'))[1]))
   
   return f"{sub} {paper} {unit} | {semester} Notes - Knowlet"
   

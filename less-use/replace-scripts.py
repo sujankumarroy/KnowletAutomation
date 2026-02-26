@@ -10,10 +10,8 @@ for root, _, files in os.walk(ROOT_DIR):
 			file_path = os.path.join(root, file)
 			with open(file_path, "r") as r:
 				content = r.read()
-			if '''<script src="../../../../assets/scripts/supabase.js"></script>''' in content and '''<script src="../../../../assets/scripts/units.js"></script>''' in content:
-				content = content.replace('''<script src="../../../../assets/scripts/units.js"></script>''',
-'').replace('''<script src="../../../../assets/scripts/supabase.js"></script>''',
-'''<script src="../../../../assets/scripts/units.js"></script>''')
+			if '''<link rel="stylesheet" href="../../../../assets/styles/supabase.css">''' in content:
+				content = content.replace('   <link rel="stylesheet" href="../../../../assets/styles/supabase.css">','')
 
 				with open(file_path, "w") as w:
 					w.write(content)

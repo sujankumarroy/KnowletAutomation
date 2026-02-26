@@ -25,7 +25,6 @@ for root, _, files in os.walk(rd):
       #link Styles
       if not '<link rel="stylesheet"' in c:
         nc = c.replace('<style>','''<link rel="stylesheet" href="../../../../assets/styles/units.css">
-    <link rel="stylesheet" href="../../../../assets/styles/supabase.css">
     <style>''')
       
       #link scripts
