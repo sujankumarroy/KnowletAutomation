@@ -141,12 +141,12 @@ def clean_latex_math(text):
 
   return re.sub(r'\$(.+?)\$', replace_math, text, flags=re.DOTALL)
 
-FOLDER_PATH = "/sdcard/.workspace/web/knowlet/notes"
+FOLDER_PATH = "/sdcard/.workspace/web/knowlet/pyq"
 
 # --- Process all HTML files ---
 for root, _, files in os.walk(FOLDER_PATH):
   for filename in files:
-    if re.match(r"unit_(\d+)\.html", filename):
+    # if re.match(r"unit_(\d+)\.html", filename):
       file_path = os.path.join(root, filename)
       with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()

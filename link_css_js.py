@@ -1,7 +1,7 @@
 import os
 import re
 
-rd = "/sdcard/.workspace/web/knowlet/notes"
+rd = "/sdcard/.workspace/web/knowlet/pyq"
 total = 0
 changed = 0
 unchanged = 0
@@ -13,7 +13,7 @@ for root, _, files in os.walk(rd):
     
     #For Units
     
-    if re.match(r"unit_(\d+)\.html", file):
+    # if re.match(r"unit_(\d+)\.html", file):
       fp = os.path.join(root, file)
       total += 1
       

@@ -9,7 +9,7 @@ paper = 0
 subject = 0
 semester = 0
 
-rd = '/sdcard/.workspace/web/Knowlet/notes'
+rd = '/sdcard/.workspace/web/Knowlet/pyq'
 
 for root, _, files in os.walk(rd):
   for filename in files:

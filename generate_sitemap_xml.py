@@ -14,11 +14,11 @@ def generate_sitemap():
         for file in files:
             if file.endswith(".html"):
                 path = os.path.join(root, file).replace("\\", "/")
-                if "notes" in path:
+                if ("knowlet/notes" in path) or ("knowlet/pyq" in path):
                     url = BASE_URL + path.removeprefix(ROOT_DIR).removesuffix('.html')
                     lastmod = datetime.fromtimestamp(os.path.getmtime(os.path.join(root, file))).strftime("%Y-%m-%d")
                     urls.append((url, lastmod))
-                    print('✔️' + url.removeprefix(BASE_URL))
+                    # print('✔️' + url.removeprefix(BASE_URL))
 
     # Write sitemap.xml
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
